@@ -76,23 +76,23 @@ let current_question = 0;
 let score = 0;
 let user_answers = [];
 
-const question_element = document.querySelector("#question h3");
-const image_element = document.querySelector("#question-image");
-const answers_element = document.querySelector("#answers");
-const result_element = document.querySelector("#result");
-const score_element = document.querySelector("#score");
-const user_answers_element = document.querySelector("#user-answers");
+let question_element = document.querySelector("#question h3");
+let image_element = document.querySelector("#question-image");
+let answers_element = document.querySelector("#answers");
+let result_element = document.querySelector("#result");
+let score_element = document.querySelector("#score");
+let user_answers_element = document.querySelector("#user-answers");
 
 function load_question() {
-
-    const question = questions[current_question];
+    
+    let question = questions[current_question];
     question_element.textContent = question.question;
     image_element.src = question.image;
     answers_element.innerHTML = "";
 
     question.answers.forEach((answer, index) => {
-
-        const button = document.createElement("button");
+        
+        let button = document.createElement("button");
         button.textContent = answer;
         button.dataset.index = index;
 
@@ -124,6 +124,7 @@ function check_answer(index) {
         show_result();
 
     }
+
 }
 
 function show_result() {
@@ -135,9 +136,9 @@ function show_result() {
 
     user_answers_element.innerHTML = "";
     user_answers.forEach((answer, index) => {
-
-        const question = questions[index];
-        const p = document.createElement("p");
+        
+        let question = questions[index];
+        let p = document.createElement("p");
         p.textContent = `${index + 1}. ${question.question} - Ваш ответ: ${question.answers[answer]} (правильно: ${question.answers[question.correct]})`;
         user_answers_element.appendChild(p);
 
